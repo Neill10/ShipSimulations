@@ -16,9 +16,12 @@ public class Address {
         this.state = state;
         if(zipcode.length() != 5)
         {
-            System.out.println("Not a valid zipcode");
+            System.out.println("Not a valid zipcode!(length of zipcode is not 5) Zipcode will be equal to null.");
+            this.zipcode = null;
         }
-        this.zipcode = zipcode;
+        else {
+            this.zipcode = zipcode;
+        }
         isApartmentNum = true;
     }
     public Address(String streetNum,String street,String city, String state, String zipcode)
