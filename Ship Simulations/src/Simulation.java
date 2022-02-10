@@ -227,37 +227,44 @@ public class Simulation {
             "1501 Hwy 14 East, Selma, AL 36703",
             "7855 Moffett Rd, Semmes, AL 36575",
 
-             */
+
             "150 Springville Station Blvd, Springville, AL 35146",
             "690 Hwy 78, Sumiton, AL 35148",
             "41301 US Hwy 280, Sylacauga, AL 35150",
             "214 Haynes Street, Talladega, AL 35160",
+            //1313 Mockingbird Lane Apt 6A, Springfield, MO 65123
+            //
+            //1313 Mockingbird Lane, Springfield, MO 65123
             "1300 Gilmer Ave, Tallassee, AL 36078",
             "34301 Hwy 43, Thomasville, AL 36784",
+
+             */
             "1420 Us 231 South, Troy, AL 36081",
             "1501 Skyland Blvd E, Tuscaloosa, AL 35405",
             "3501 20th Av, Valley, AL 36854",
             "1300 Montgomery Highway, Vestavia Hills, AL 35216",
-            "4538 Us Hwy 231, Wetumpka AL 36092",
+            "4538 Us Hwy 231, Wetumpka, AL 36092",
             "2575 Us Hwy 43, Winfield, AL 35594"
     };
     public static void main(String[] args) {
-        int random1 = (int)(Math.random() * listOfAddress.length);
-        int random2 = (int)(Math.random() * listOfAddress.length);
+        ArrayList<Address> testList = new ArrayList<Address>();
+        for(int i = 0; i < 10; i++)
+        {
+            int random = (int)(Math.random() * listOfAddress.length);
+            Address test = new Address(listOfAddress[random]);
+            testList.add(test);
+            System.out.println("index" + i + "  " + testList.get(i));
+            System.out.println(testList.get(i).getStreet());
+        }
 
-        Address test = new Address(listOfAddress[random1]);
-        System.out.println(test);
-        System.out.println(test.getStreet());
-        Address test2 = new Address(listOfAddress[random2]);
-        System.out.println(test2);
-        System.out.println(test2.getStreet());
-        Address test3 = new Address("1313 Mockingbird Lane Apt 6A, Springfield, MO 65123");
-        System.out.println("-------------------------");
-        System.out.println(test.compare(test2));
-        System.out.println(test.compare(test3));
-        System.out.println(test2.compare(test3));
-        Package bruh = new Package(test,test2,10);
-        System.out.println(PostageCalculator.calculatePostage(bruh));
+        for(int i = 0; i < 10; i++)
+        {
+            int random = (int) ((Math.random() * 9));//1-10 in
+            double weight = (Math.random() * 9);
+            Package pack = new Package(testList.get(i),testList.get(random),weight);
+            System.out.println(testList.get(i).compare(testList.get(random)));
+            System.out.println(PostageCalculator.calculatePostage(pack));//calculates prices
+        }
 
         /*
         Address test = new Address("1313 Mockingbird Lane, Springfield, MO 65123");

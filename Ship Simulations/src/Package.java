@@ -2,6 +2,9 @@ public class Package {
     private Address origin;
     private Address destination;
     private double weight;//pounds
+    private double height;
+    private double length;
+    private double width;
 
     public Package(Address origin,Address destination,double weight)
     {
